@@ -73,6 +73,14 @@ class Scanner {
             case '/' -> {
                 if (match('/')) {
                     while (peek() != '\n' && !isAtEnd()) advance();
+                } else if (match('*')) {
+                    while (!isAtEnd()) {
+                        if (peek() == '*' && peekNext() == '/') {
+                            advance(2);
+                            break;
+                        }
+                        advance();
+                    }
                 } else {
                     addToken(TokenType.SLASH);
                 }
@@ -178,6 +186,11 @@ class Scanner {
 
     private char advance() {
         return source.charAt(current++);
+    }
+
+    private char advance(int steps) {
+        for (int i = 0; i < steps - 1; i++) advance();
+        return advance();
     }
 
     private void addToken(TokenType type) {
