@@ -25,6 +25,11 @@ class AstPrinter implements Expr.Visitor<String>, Stmt.Visitor<Void> {
     }
 
     @Override
+    public String visitLogicalExpr(Expr.Logical expr) {
+        return null;
+    }
+
+    @Override
     public String visitUnaryExpr(Expr.Unary expr) {
         return parenthesize(expr.operator.lexeme, expr.right);
     }
@@ -45,12 +50,22 @@ class AstPrinter implements Expr.Visitor<String>, Stmt.Visitor<Void> {
     }
 
     @Override
+    public Void visitIfStmt(Stmt.If stmt) {
+        return null;
+    }
+
+    @Override
     public Void visitPrintStmt(Stmt.Print stmt) {
         return null;
     }
 
     @Override
     public Void visitVarStmt(Stmt.Var stmt) {
+        return null;
+    }
+
+    @Override
+    public Void visitWhileStmt(Stmt.While stmt) {
         return null;
     }
 
