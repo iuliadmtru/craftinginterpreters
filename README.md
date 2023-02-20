@@ -1,4 +1,4 @@
 # craftinginterpreters
 
-This project follows the [_Crafting Interpreters_](https://craftinginterpreters.com) book
+This project follows the book [Crafting Interpreters](https://craftinginterpreters.com)
 by Robert Nystrom.
